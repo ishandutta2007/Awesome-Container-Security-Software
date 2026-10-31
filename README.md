@@ -32,79 +32,31 @@ Contributions welcome! Open a PR to add/update entries. Keep descriptions factua
 
 ## Table of Contents
 
+- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
 - [SaaS/Hosted Platforms](#saas-hosted-platforms)
-
 - [Open-Source GitHub Projects](#open-source-github-projects)
-
 - [How to Contribute](#how-to-contribute)
-
 - [Disclaimer](#disclaimer)
 
+## Sector Overview & Market Dynamics
 
+The global container security and cloud workload protection market is estimated at **.6B–.9B in 2026** (scaling within the broader **.7B–.2B** CWPP sector at a ~20–25% CAGR), driven by enterprise Kubernetes adoption, microservices expansion, and compliance mandates (e.g., NIS2, PCI-DSS 4.0 SBOM requirements).
+The sector exhibits a **moderately concentrated yet bifurcated market structure**: core enterprise mindshare is dominated by mega-cap cybersecurity consolidators and CNAPP platforms (e.g., Palo Alto Networks, CrowdStrike, Wiz/Alphabet), while remaining fragmented across specialized niche domains such as eBPF-based runtime observability, software supply chain defense, and developer-centric vulnerability remediation.
 
 ## SaaS/Hosted Platforms
 
-
-
-- **[CrowdStrike Falcon Container Security](https://www.crowdstrike.com/)**
-
-  **Container and Kubernetes protection** within Falcon Cloud Security. Integrates agent-based and agentless protection to stop adversaries across major clouds, workloads, and operating systems. Includes vulnerability management, continuous threat detection and response, runtime protection, compliance enforcement, and automated CI/CD pipeline security . **Pricing**: CDW lists Flex subscription at **$1,392.99** for a single license ; enterprise bundles quote-based. **Free tier**: None. **Best for**: CrowdStrike customers wanting container protection integrated with endpoint and cloud security—**trade-off**: container module requires appropriate Falcon tier.
-
-
-
-- **[Aqua Security](https://www.aquasec.com/)**
-
-  **Full-lifecycle CNAPP** securing containers, serverless, Kubernetes, and AI workloads. Image scanning built on **Trivy** (which Aqua maintains as open source) with proprietary vulnerability data, signed advisories, malware detection, and secret scanning; detection rates competitive with Wiz and Prisma Cloud at **~95–97%** with **4–6% false positives** . Differentiator: **vShield**—automated micro-patching that applies binary patches to vulnerable libraries inside running containers without rebuilding the image . Runtime protection remains deepest in market: behavioral profiling with low false positive rates after 2–3 week learning, eBPF-based detection, and mature response actions (container quarantine, network isolation, forensic snapshot) . **Pricing**: Per-protected-workload; full platform **~$35–$55/workload/month** list, **$20–$30** in enterprise deals; AWS Marketplace tiers from **$50K–$150K/year** . **Free tier**: None. **Best for**: teams that take runtime detection seriously and have staffed investigation functions—**trade-off**: platform overhead not justified for <10 clusters where Kyverno + Falco + Trivy deliver 80% of value at a fraction of cost .
-
-
-
-- **[Sysdig Secure](https://sysdig.com/)**
-
-  **CNAPP built on open-source Falco** with deep system call visibility for runtime threat detection. Core built on Falco, sysdig OSS, and Cloud Custodian; unified security and monitoring; **100+ out-of-the-box runtime policies** with MITRE ATT&CK mapping; serverless container support including inline Fargate scanning . **Simple node-based pricing** (per protected node) —contrast with complex pricing of many competitors . **Pricing**: Per-node; quote-based. **Free tier**: Falco OSS is free. **Best for**: Kubernetes-heavy environments wanting Falco-native runtime security with commercial support—**trade-off**: agent deployment required for runtime; node-based pricing scales with cluster size.
-
-
-
-- **[Prisma Cloud Compute](https://www.paloaltonetworks.com/prisma/cloud)** (Palo Alto Networks)
-
-  **CWPP delivered as part of Prisma Cloud** (formerly Twistlock). Protects hosts, containers, and serverless across any cloud or datacenter. **Credit-based licensing**: Hosts without containers **0.5 credit**; **container hosts 5 credits** (whether running 1 container or 100); app-embedded containers **1 credit**; serverless functions **1 credit per 6 defended functions** . **Two editions**: Enterprise Edition (SaaS, Palo Alto manages Console) and Compute Edition (self-hosted, air-gapped support) . **Pricing**: Credit-based; per-resource metering. **Free tier**: None. **Best for**: enterprises wanting a single platform for CSPM and CWPP—**note**: credit model rewards container density (1 host = 5 credits regardless of container count) .
-
-
-
-- **[Snyk Container](https://snyk.io/product/container-vulnerability-management/)**
-
-  **Container image scanning** with a distinctive remediation model: **base image recommendations** that suggest alternative base images to eliminate large batches of CVEs at once—turning "140 vulnerabilities" into "upgrade this base image and 90 go away" . Scans Docker and OCI images for OS and application dependency vulnerabilities; layer attribution identifies whether findings came from base image or added packages; connects to Docker Hub, ECR, GAR, ACR, and Harbor; CI pipeline integration; enterprise tier adds Kubernetes monitoring and runtime insights . **Pricing**: **Credit-based from January 1, 2026**—unified Platform Credit Consumption model; container scans, IaC scans, and cloud assessments each consume credits at their own rates; free tier with monthly limits . **Free tier**: Yes, basic image scanning with limits. **Best for**: teams wanting actionable base-image remediation guidance alongside CVE detection—**trade-off**: no native IaC or source code scanning in Container; credit model requires careful volume modeling .
-
-
-
-- **[Wiz](https://www.wiz.io/)**
-
-  **Agentless CNAPP** with container and Kubernetes visibility. Gartner reviewers highlight clear risk visualization, contextual prioritization, and quick onboarding across AWS, Azure, GCP, OCI, Alibaba Cloud, and Kubernetes . **Pricing**: Quote-only; enterprise contracts. **Free tier**: None. **Best for**: enterprises wanting agentless discovery with cross-cloud risk correlation—**trade-off**: higher cost as environments scale; less runtime depth than Aqua or Sysdig .
-
-
-
-- **[Docker Scout](https://www.docker.com/)**
-
-  **Container image analysis** integrated into Docker ecosystem. **Pricing**: Included with Docker subscriptions; free tier available. **Free tier**: Yes, limited. **Best for**: Docker Desktop users wanting basic image scanning without a separate tool—**trade-off**: less depth than dedicated security platforms.
-
-
-
-- **[JFrog Xray](https://jfrog.com/xray/)**
-
-  **Universal software composition analysis** within JFrog Artifactory ecosystem. **Important**: **Xray is not included in non-commercial licenses** (JCR or OSS)—available starting from **Pro X** commercial edition; **Xray HA requires Enterprise X or Enterprise+**; **JFrog Advanced Security (JAS) requires Enterprise X or Enterprise+**—Pro X includes only Xray's base vulnerability and license-compliance scanning . **Pricing**: Bundled with JFrog platform tiers. **Free tier**: No Xray in free tier. **Best for**: Artifactory users wanting container and dependency scanning within their artifact registry—**trade-off**: requires commercial JFrog license for Xray.
-
-
-
-- **[GitHub Advanced Security](https://github.com/features/security)**
-
-  **Native security for GitHub** with CodeQL, secret scanning, and Dependabot. **Critical limitation**: **GHAS has no native container or IaC scanning product as of 2026**—teams typically pair it with a separate tool. GitHub's coverage is limited to Dependabot picking up vulnerable base images in Dockerfile `FROM` lines . **Pricing**: Per unique committer per month on top of GitHub Enterprise; GHAS Code Security and GHAS Secret Protection are separate add-ons . **Free tier**: CodeQL free for public repos. **Best for**: GitHub-centric teams wanting code and secret scanning—**not** a container security solution without additional tools .
-
-
-
-- **[Anchore Enterprise](https://anchore.com/)**
-
-  **Container security and SBOM platform** with FedRAMP and DoD policy packs. **Pricing**: Container Image set via Helm; SBOM volume tiers (500–4,000 SBOMs/month); support tiers from Basic 9×5 SLA to 24×7 Priority . **Free tier**: Anchore Open Source (Syft, Grype) available separately. **Best for**: public sector and regulated enterprises needing FedRAMP/DoD compliance for container images—**trade-off**: pricing scaled by SBOM volume.
-
-
+| Product | Company Valuation / Revenue | Pricing (Starting Tier) | Free Tier / Trial Limits | Key Capabilities & Trade-offs |
+| :--- | :--- | :--- | :--- | :--- |
+| **[GitHub Advanced Security](https://github.com/features/security)** | Parent (Microsoft): **~.8T–.0T Market Cap** / GitHub: **~.0B ARR** | **/active committer/month** (/mo Secret Protection + /mo Code Security add-ons; requires GitHub Enterprise) | **Free for public repos** (CodeQL, secret scanning & Dependabot free indefinitely); **30-day free trial** for GitHub Enterprise private evaluation | Native security integration with GitHub CI/CD, CodeQL, and secret scanning. **Trade-off**: No native deep container/IaC runtime scanner; limited to Dependabot Dockerfile FROM scanning. |
+| **[Prisma Cloud Compute](https://www.paloaltonetworks.com/prisma/cloud)** | **~– Market Cap** / **.48B FY2026 Rev** (Palo Alto Networks) | **/credit/year** (~,000/yr for 100-credit base pack on AWS Marketplace; container hosts require 5 credits/host) | **No free tier**; **15-to-30 day guided Proof-of-Concept (PoC)** / Private Offer evaluation via sales | Comprehensive full-stack CWPP and CSPM across multi-cloud and bare-metal container hosts. **Trade-off**: Complex credit-based licensing model; enterprise-heavy deployment. |
+| **[CrowdStrike Falcon Container Security](https://www.crowdstrike.com/)** | **~– Market Cap** / **.81B FY2026 Rev** (CrowdStrike Holdings) | **,392.99/license** (Falcon Flex list starting point on CDW; enterprise bundles custom quoted) | **No free tier**; **15-day free trial** of Falcon Cloud Security (agentless posture scanning and workload visibility without credit card upfront) | Unified agentless and agent-based kernel/runtime security integrated into the Falcon EDR ecosystem. **Trade-off**: Requires Falcon tier investment; steep learning curve for non-Falcon shops. |
+| **[Wiz](https://www.wiz.io/)** | ** Valuation** (Acquired by Alphabet/Google) / **> ARR** | **,000/year** (Wiz Essential starting tier for up to 100 workloads; ~/workload/year) | **No free tier**; **14-day free trial** with full platform access for connected cloud environments | Fast agentless discovery, multi-cloud risk graph, and rapid posture management across Kubernetes. **Trade-off**: High annual enterprise spend floors; runtime defense less deep than eBPF agent-based tooling. |
+| **[JFrog Xray](https://jfrog.com/xray/)** | **~.2B Market Cap** / **~ FY2025 Rev** (JFrog Ltd.) | **/month** (Cloud Pro tier, 25 GB transfer/storage) or **,000/year** (Pro X self-hosted with Xray included) | **Free-forever community tier**: JFrog Container Registry (storage only, no Xray); **14-day full free trial** with Xray enabled (no credit card required) | Deep artifact registry integration, dependency security, and recursive SBOM analysis within Artifactory pipelines. **Trade-off**: Full Xray scanning unavailable on free/OSS tiers; advanced security requires Enterprise tiers. |
+| **[Snyk Container](https://snyk.io/product/container-vulnerability-management/)** | **~.7B Valuation** (Private secondary) / ** Rev** (Snyk Ltd.) | **/contributing developer/month** (Team plan, 5-developer minimum = /month) | **Free-forever plan**: **100 container tests/month** across up to 5 active projects (unlimited users) | Actionable automated remediation with base image recommendations to bulk-eliminate CVEs. **Trade-off**: Free tier caps out rapidly in active CI/CD pipelines; credit consumption on Enterprise tier. |
+| **[Sysdig Secure](https://sysdig.com/)** | **.5B Valuation** (Permira Series G) / **~ ARR** (Sysdig Inc.) | **/host/month** (Enterprise CNAPP starting rate on AWS Marketplace; 20-host minimum commit) | **Free OSS tier**: Falco OSS runtime engine is completely free; **30-day free trial** of Sysdig Secure platform (cloud & Kubernetes evaluation) | Built on open-source Falco with unmatched eBPF system-call observability and 100+ MITRE ATT&CK runtime policies. **Trade-off**: Requires kernel agent deployment for runtime capabilities; node-based cost scales with cluster density. |
+| **[Docker Scout](https://www.docker.com/)** | **.1B Valuation** (Private) / **~ ARR** (Docker Inc.) | **/user/month** (Docker Team tier billed annually, or /mo monthly; includes unlimited Scout remote repos) | **Free-forever tier (Personal)**: **Unlimited local scans**, but strictly capped at **1–3 remote repositories** and **3 GB max image size** | Zero-friction developer ergonomics directly integrated into Docker Desktop and Docker Hub. **Trade-off**: Lightweight vulnerability scanning lacking deep runtime or admission control enforcement. |
+| **[Aqua Security](https://www.aquasec.com/)** | **.0B Valuation** (Evolution Equity Series E) / **~ ARR** (Aqua Security Software) | **/workload/month** (Workload-based list pricing; AWS Marketplace contracts from ,000/year) | **Free OSS tier**: Trivy CLI/scanner is free forever; **14-to-30 day free trial** of Aqua CNAPP platform on AWS Marketplace | Full-lifecycle CNAPP, Trivy-backed vulnerability intelligence, behavioral profiling, and unique vShield micro-patching in running pods. **Trade-off**: Heavy overhead and administrative overhead for smaller cluster footprints (<10 nodes). |
+| **[Anchore Enterprise](https://anchore.com/)** | **~– Est. Revenue** / Series A funded (Anchore Inc.) | **,500/year** (Anchore Enterprise Cloud Image AMI on AWS Marketplace; up to 500 SBOMs/month) | **Free OSS tier**: Syft (SBOM) and Grype (scanner) are completely free; **15-day free trial** of Anchore Enterprise AMI | Industry-standard SBOM management with FedRAMP, DoD, and strict government compliance policy enforcement. **Trade-off**: Annual contract pricing tied to monthly SBOM generation volume. |
 
 ## Open-Source GitHub Projects
 
