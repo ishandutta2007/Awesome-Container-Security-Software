@@ -27,7 +27,7 @@
 - [📊 Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
 - [☁️ SaaS & Enterprise Hosted Platforms](#-saas--enterprise-hosted-platforms)
 - [🔓 Open-Source GitHub Projects](#-open-source-github-projects)
-  - [⭐ Ranked by GitHub Stars](#-ranked-by-github-stars)
+  - [⭐ Ranked by GitHub_Stars](#-ranked-by-github-stars)
   - [🧩 Recommended Architecture Patterns](#-recommended-architecture-patterns)
 - [📈 Star History](#-star-history)
 - [🤝 How to Contribute](#-how-to-contribute)
@@ -63,96 +63,96 @@ The sector exhibits a **moderately concentrated yet bifurcated market structure*
 
 ## 🔓 Open-Source GitHub Projects
 
-### ⭐ Ranked by GitHub Stars
+### ⭐ Ranked by GitHub_Stars
 
-Sorted in descending order by community adoption and GitHub star count:
+Sorted in descending order by community adoption and GitHub Stars_Count:
 
-#### 1. **[Trivy](https://github.com/aquasecurity/trivy)** [![GitHub stars](https://img.shields.io/github/stars/aquasecurity/trivy?style=social&color=white)](https://github.com/aquasecurity/trivy/stargazers) 🛡️
+#### 1. **[Trivy](https://github.com/aquasecurity/trivy)** [![GitHub_Stars](https://img.shields.io/github/stars/aquasecurity/trivy?style=social&color=white)](https://github.com/aquasecurity/trivy/stargazers) 🛡️
 - **Focus**: Multi-purpose Vulnerability, Misconfiguration, Secret, and SBOM Scanner (Apache 2.0).
 - **Features**: Scans container images, filesystems, and Git repositories for CVEs in OS packages and language dependencies. Detects IaC misconfigurations (Terraform, CloudFormation, Kubernetes, Dockerfile), exposed secrets, and generates SBOMs (SPDX/CycloneDX). Runs as a single binary in CI/CD pipelines or admission controllers.
 - **Trade-off**: Scanner only—no kernel-level runtime protection or system call interceptors.
 
-#### 2. **[Cilium](https://github.com/cilium/cilium)** [![GitHub stars](https://img.shields.io/github/stars/cilium/cilium?style=social&color=white)](https://github.com/cilium/cilium/stargazers) ⚡
+#### 2. **[Cilium](https://github.com/cilium/cilium)** [![GitHub_Stars](https://img.shields.io/github/stars/cilium/cilium?style=social&color=white)](https://github.com/cilium/cilium/stargazers) ⚡
 - **Focus**: eBPF-based Container Networking, Observability, and Network Security (Apache 2.0, CNCF Graduated).
 - **Features**: Provides API-aware Layer 3 to Layer 7 network security policies, transparent encryption (WireGuard/IPsec), runtime identity verification, and deep observability (Hubble) for Kubernetes pods without injecting sidecars.
 - **Trade-off**: Primarily focused on network and kernel-level workload traffic rather than image static analysis or SBOM generation.
 
-#### 3. **[gVisor](https://github.com/google/gvisor)** [![GitHub stars](https://img.shields.io/github/stars/google/gvisor?style=social&color=white)](https://github.com/google/gvisor/stargazers) 🧱
+#### 3. **[gVisor](https://github.com/google/gvisor)** [![GitHub_Stars](https://img.shields.io/github/stars/google/gvisor?style=social&color=white)](https://github.com/google/gvisor/stargazers) 🧱
 - **Focus**: Application Kernel for Container Isolation and Sandboxing (Apache 2.0).
 - **Features**: Implements a user-space kernel (written in Go) that intercepts application system calls, creating a hardened defense boundary between untrusted containers and the host Linux kernel. Integrates cleanly with Docker, containerd, and Kubernetes as a RunC alternative runtime.
 - **Trade-off**: Introduces system-call overhead on I/O-intensive workloads; does not perform vulnerability scanning.
 
-#### 4. **[Grype](https://github.com/anchore/grype)** [![GitHub stars](https://img.shields.io/github/stars/anchore/grype?style=social&color=white)](https://github.com/anchore/grype/stargazers) 🔍
+#### 4. **[Grype](https://github.com/anchore/grype)** [![GitHub_Stars](https://img.shields.io/github/stars/anchore/grype?style=social&color=white)](https://github.com/anchore/grype/stargazers) 🔍
 - **Focus**: Vulnerability Scanner for Container Images and Filesystems (Apache 2.0).
 - **Features**: Extremely fast vulnerability scanner created by Anchore. Seamlessly digests SBOMs from Syft, matches packages against regularly updated vulnerability feeds, supports multiple output formats (JSON, SARIF, CycloneDX), and integrates into automated pull request gates.
 - **Trade-off**: Static scanner only—requires pairing with runtime sensors and policy admission engines.
 
-#### 5. **[Kubescape](https://github.com/armosec/kubescape)** [![GitHub stars](https://img.shields.io/github/stars/armosec/kubescape?style=social&color=white)](https://github.com/armosec/kubescape/stargazers) ☸️
+#### 5. **[Kubescape](https://github.com/armosec/kubescape)** [![GitHub_Stars](https://img.shields.io/github/stars/armosec/kubescape?style=social&color=white)](https://github.com/armosec/kubescape/stargazers) ☸️
 - **Focus**: Kubernetes Security Platform, Posture Assessment & Hardening (Apache 2.0, CNCF Sandbox).
 - **Features**: Automates compliance checks against CIS Benchmarks, NSA-CISA guidelines, and MITRE ATT&CK frameworks. Provides image vulnerability scanning, RBAC visualization, and eBPF-driven network policy generation.
 - **Trade-off**: Broad multi-framework posture tool; runtime enforcement relies on complementary engines.
 
-#### 6. **[Syft](https://github.com/anchore/syft)** [![GitHub stars](https://img.shields.io/github/stars/anchore/syft?style=social&color=white)](https://github.com/anchore/syft/stargazers) 📦
+#### 6. **[Syft](https://github.com/anchore/syft)** [![GitHub_Stars](https://img.shields.io/github/stars/anchore/syft?style=social&color=white)](https://github.com/anchore/syft/stargazers) 📦
 - **Focus**: CLI Tool and Library for Generating Software Bills of Materials (SBOM) (Apache 2.0).
 - **Features**: Deeply inspects container image layers, file archives, and directories to identify installed software packages, OS libraries, and nested dependencies. Emits standards-compliant SPDX, CycloneDX, and Syft-JSON formats.
 - **Trade-off**: SBOM generator only—does not evaluate CVE severity directly (delegated to Grype).
 
-#### 7. **[Docker Bench for Security](https://github.com/docker/docker-bench-security)** [![GitHub stars](https://img.shields.io/github/stars/docker/docker-bench-security?style=social&color=white)](https://github.com/docker/docker-bench-security/stargazers) 📋
+#### 7. **[Docker Bench for Security](https://github.com/docker/docker-bench-security)** [![GitHub_Stars](https://img.shields.io/github/stars/docker/docker-bench-security?style=social&color=white)](https://github.com/docker/docker-bench-security/stargazers) 📋
 - **Focus**: Docker Host and Container Hardening Audit Script (Apache 2.0).
 - **Features**: Portable POSIX shell script that checks for dozens of common container security best practices following the official CIS Docker Benchmark (host configuration, daemon flags, container images, runtime restrictions).
 - **Trade-off**: Audit and assessment script only—no automated remediation, continuous daemon, or admission webhook.
 
-#### 8. **[Falco](https://github.com/falcosecurity/falco)** [![GitHub stars](https://img.shields.io/github/stars/falcosecurity/falco?style=social&color=white)](https://github.com/falcosecurity/falco/stargazers) 🚨
+#### 8. **[Falco](https://github.com/falcosecurity/falco)** [![GitHub_Stars](https://img.shields.io/github/stars/falcosecurity/falco?style=social&color=white)](https://github.com/falcosecurity/falco/stargazers) 🚨
 - **Focus**: De Facto Standard Cloud-Native Runtime Threat Detection Engine (Apache 2.0, CNCF Graduated).
 - **Features**: Leverages eBPF probes to intercept Linux system calls in real-time. Employs expressive YAML rules to detect anomalous behavior, container escapes, reverse shells, privilege escalations, and namespace violations with 50+ output connectors (SIEM, Slack, webhook).
 - **Trade-off**: Runtime threat detection only—does not scan static container images or enforce admission gates.
 
-#### 9. **[Kyverno](https://github.com/kyverno/kyverno)** [![GitHub stars](https://img.shields.io/github/stars/kyverno/kyverno?style=social&color=white)](https://github.com/kyverno/kyverno/stargazers) 📜
+#### 9. **[Kyverno](https://github.com/kyverno/kyverno)** [![GitHub_Stars](https://img.shields.io/github/stars/kyverno/kyverno?style=social&color=white)](https://github.com/kyverno/kyverno/stargazers) 📜
 - **Focus**: Kubernetes-Native Policy Management Engine (Apache 2.0, CNCF Incubating).
 - **Features**: Validates, mutates, and generates Kubernetes resources using native Custom Resource Definitions (CRDs) without requiring a specialized programming language like Rego. Enforces image signing verification with Sigstore/Cosign, image registry allowlists, and pod security standards.
 - **Trade-off**: Admission and cluster mutation gatekeeper only—does not provide system call runtime monitoring.
 
-#### 10. **[kube-bench](https://github.com/aquasecurity/kube-bench)** [![GitHub stars](https://img.shields.io/github/stars/aquasecurity/kube-bench?style=social&color=white)](https://github.com/aquasecurity/kube-bench/stargazers) 📝
+#### 10. **[kube-bench](https://github.com/aquasecurity/kube-bench)** [![GitHub_Stars](https://img.shields.io/github/stars/aquasecurity/kube-bench?style=social&color=white)](https://github.com/aquasecurity/kube-bench/stargazers) 📝
 - **Focus**: CIS Kubernetes Benchmark Automation Tool (Apache 2.0).
 - **Features**: Checks whether Kubernetes nodes, master components, etcd, and worker configurations conform to the CIS Kubernetes Benchmark recommendations. Can be deployed as a Kubernetes Job or run directly on master/worker hosts.
 - **Trade-off**: Static configuration auditor—does not inspect live system calls or container images.
 
-#### 11. **[Cosign](https://github.com/sigstore/cosign)** [![GitHub stars](https://img.shields.io/github/stars/sigstore/cosign?style=social&color=white)](https://github.com/sigstore/cosign/stargazers) 🔏
+#### 11. **[Cosign](https://github.com/sigstore/cosign)** [![GitHub_Stars](https://img.shields.io/github/stars/sigstore/cosign?style=social&color=white)](https://github.com/sigstore/cosign/stargazers) 🔏
 - **Focus**: Container Signing, Verification, and Supply Chain Attestation (Apache 2.0, Sigstore / OpenSSF).
 - **Features**: Enables keyless container signing, SBOM attestation, and signature storage directly within standard OCI registries. Integrates with Fulcio (PKI) and Rekor (transparency log) to guarantee image provenance across pipelines.
 - **Trade-off**: Cryptographic signing and attestation layer—must be paired with policy admission engines (Kyverno/Gatekeeper) to enforce gates.
 
-#### 12. **[kube-hunter](https://github.com/aquasecurity/kube-hunter)** [![GitHub stars](https://img.shields.io/github/stars/aquasecurity/kube-hunter?style=social&color=white)](https://github.com/aquasecurity/kube-hunter/stargazers) 🎯
+#### 12. **[kube-hunter](https://github.com/aquasecurity/kube-hunter)** [![GitHub_Stars](https://img.shields.io/github/stars/aquasecurity/kube-hunter?style=social&color=white)](https://github.com/aquasecurity/kube-hunter/stargazers) 🎯
 - **Focus**: Kubernetes Penetration Testing and Vulnerability Hunting (Apache 2.0).
 - **Features**: Actively scans Kubernetes clusters for open ports, misconfigured kubelet APIs, insecure etcd endpoints, and privilege escalation vulnerabilities from outside or within a compromised container.
 - **Trade-off**: Active reconnaissance tool—designed for security assessments rather than passive continuous defense.
 
-#### 13. **[Tracee](https://github.com/aquasecurity/tracee)** [![GitHub stars](https://img.shields.io/github/stars/aquasecurity/tracee?style=social&color=white)](https://github.com/aquasecurity/tracee/stargazers) 🕵️
+#### 13. **[Tracee](https://github.com/aquasecurity/tracee)** [![GitHub_Stars](https://img.shields.io/github/stars/aquasecurity/tracee?style=social&color=white)](https://github.com/aquasecurity/tracee/stargazers) 🕵️
 - **Focus**: eBPF-Powered Runtime Security and Forensics Sensor (Apache 2.0).
 - **Features**: Collects kernel events at high speed using eBPF to detect suspicious behavioral patterns (memory injection, unauthorized syscall execution, fileless execution). Emits rich forensic metadata for SOC and threat investigation.
 - **Trade-off**: Sensor and detection engine—requires integration with SIEMs or alerting backends for automated orchestration.
 
-#### 14. **[Gatekeeper](https://github.com/open-policy-agent/gatekeeper)** [![GitHub stars](https://img.shields.io/github/stars/open-policy-agent/gatekeeper?style=social&color=white)](https://github.com/open-policy-agent/gatekeeper/stargazers) 🏛️
+#### 14. **[Gatekeeper](https://github.com/open-policy-agent/gatekeeper)** [![GitHub_Stars](https://img.shields.io/github/stars/open-policy-agent/gatekeeper?style=social&color=white)](https://github.com/open-policy-agent/gatekeeper/stargazers) 🏛️
 - **Focus**: Policy Controller for Kubernetes using Open Policy Agent (OPA) (Apache 2.0, CNCF Graduated).
 - **Features**: Enforces fine-grained admission policies written in Rego. Audits existing cluster resources against compliance rules, supports constraint templates, and blocks non-compliant container configurations before deployment.
 - **Trade-off**: Requires learning OPA Rego policy language; requires custom webhook operational management.
 
-#### 15. **[Polaris](https://github.com/fairwindsops/polaris)** [![GitHub stars](https://img.shields.io/github/stars/fairwindsops/polaris?style=social&color=white)](https://github.com/fairwindsops/polaris/stargazers) 🧭
+#### 15. **[Polaris](https://github.com/fairwindsops/polaris)** [![GitHub_Stars](https://img.shields.io/github/stars/fairwindsops/polaris?style=social&color=white)](https://github.com/fairwindsops/polaris/stargazers) 🧭
 - **Focus**: Kubernetes Deployment Best Practices and Security Validation (Apache 2.0).
 - **Features**: Audits Kubernetes workload definitions for security gaps (privilege escalation, missing resource limits, host port bindings, read-only root filesystems). Operates as a CLI, webhook admission controller, or web dashboard.
 - **Trade-off**: Focuses on resource manifest sanity and configuration rather than container binary or runtime analysis.
 
-#### 16. **[Dockle](https://github.com/goodwithtech/dockle)** [![GitHub stars](https://img.shields.io/github/stars/goodwithtech/dockle?style=social&color=white)](https://github.com/goodwithtech/dockle/stargazers) 🔬
+#### 16. **[Dockle](https://github.com/goodwithtech/dockle)** [![GitHub_Stars](https://img.shields.io/github/stars/goodwithtech/dockle?style=social&color=white)](https://github.com/goodwithtech/dockle/stargazers) 🔬
 - **Focus**: Container Image Linter for Security and Best Practices (Apache 2.0).
 - **Features**: Analyzes Docker images for insecure instructions (root user execution, leaked credentials, suspicious files, unneeded setuid permissions) without executing the container or requiring a Docker daemon.
 - **Trade-off**: Linter for image construction hygiene; not a CVE vulnerability database scanner.
 
-#### 17. **[KubeArmor](https://github.com/kubearmor/KubeArmor)** [![GitHub stars](https://img.shields.io/github/stars/kubearmor/KubeArmor)](https://github.com/kubearmor/KubeArmor/stargazers) 🛡️
+#### 17. **[KubeArmor](https://github.com/kubearmor/KubeArmor)** [![GitHub_Stars](https://img.shields.io/github/stars/kubearmor/KubeArmor)](https://github.com/kubearmor/KubeArmor/stargazers) 🛡️
 - **Focus**: LSM-based Runtime Policy Enforcement and Least-Privilege Isolation (Apache 2.0, CNCF Sandbox).
 - **Features**: Utilizes Linux Security Modules (AppArmor, SELinux, BPF-LSM) to actively enforce and block prohibited file access, binary execution, and network connections in running pods at the kernel layer.
 - **Trade-off**: Hard enforcement tool—does not maintain a vulnerability database or generate SBOMs.
 
-#### 18. **[NeuVector](https://github.com/neuvector/neuvector)** [![GitHub stars](https://img.shields.io/github/stars/neuvector/neuvector?style=social&color=white)](https://github.com/neuvector/neuvector/stargazers) 🌐
+#### 18. **[NeuVector](https://github.com/neuvector/neuvector)** [![GitHub_Stars](https://img.shields.io/github/stars/neuvector/neuvector?style=social&color=white)](https://github.com/neuvector/neuvector/stargazers) 🌐
 - **Focus**: End-to-End Open-Source Container Security and Container Network Firewall (Apache 2.0, SUSE).
 - **Features**: Complete zero-trust security platform with Layer 7 container firewall, packet inspection, CIS benchmark auditing, vulnerability scanning, and behavioral admission controls.
 - **Trade-off**: Heavier infrastructure footprint compared to modular single-purpose CLI utilities.
